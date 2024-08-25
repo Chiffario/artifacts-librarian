@@ -4,32 +4,43 @@ useSingleRequestParameter: true
 preferUnsignedInt: true
 basePathCustom: https://api.artifactsmmo.com
 operationIdNameMappings:
+#  character actions:
   actionMoveMyNameActionMovePost: move_character
   actionEquipItemMyNameActionEquipPost: equip_item
   actionUnequipItemMyNameActionUnequipPost: unequip_item
+  actionDeleteItemMyNameActionDeletePost: delete_item
   actionFightMyNameActionFightPost: fight
   actionGatheringMyNameActionGatheringPost: gather
   actionCraftingMyNameActionCraftingPost: craft
+#  bank actions
   actionDepositBankMyNameActionBankDepositPost: deposit_item
   actionDepositBankGoldMyNameActionBankDepositGoldPost: deposit_gold
   actionRecyclingMyNameActionRecyclingPost: recycle
   actionWithdrawBankMyNameActionBankWithdrawPost: withdraw_item
   actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost: withdraw_gold
+#  great exchange
   actionGeBuyItemMyNameActionGeBuyPost: ge_buy_item
   actionGeSellItemMyNameActionGeSellPost: ge_sell_item
+  getAllGeItemsGeGet: get_all_ge_items
+  getGeItemGeCodeGet: get_ge_item
+#  tasks
   actionAcceptNewTaskMyNameActionTaskNewPost: accept_new_task
   actionCompleteTaskMyNameActionTaskCompletePost: complete_task
   actionTaskExchangeMyNameActionTaskExchangePost: task_exchange
-  actionDeleteItemMyNameActionDeletePost: delete_item
+  actionTaskCancelMyNameActionTaskCancelPost: cancel_task
+#   bank stuff
+  getBankDetailsMyBankGet: get_bank_details
+  getBankItemsMyBankItemsGet: get_bank_items
+  actionBuyBankExpansionMyNameActionBankBuyExpansionPost: buy_bank_expansion
+#  character handling
   getAllCharactersLogsMyLogsGet: get_all_characters_logs
   getMyCharactersMyCharactersGet: get_my_characters
-  getBankItemsMyBankItemsGet: get_bank_items
-  getBankGoldsMyBankGoldGet: get_bank_gold
-  changePasswordMyChangePasswordPost: change_password
   createCharacterCharactersCreatePost: create_character
   deleteCharacterCharactersDeletePost: delete_character
   getAllCharactersCharactersGet: get_all_characters
   getCharacterCharactersNameGet: get_character
+  getCharacterAchievementsCharactersNameAchievementsGet: get_achievements
+#   knowledge base
   getAllMapsMapsGet: get_all_maps
   getMapMapsXYGet: get_map
   getAllItemsItemsGet: get_all_items
@@ -39,8 +50,9 @@ operationIdNameMappings:
   getAllResourcesResourcesGet: get_all_resources
   getResourceResourcesCodeGet: get_resource
   getAllEventsEventsGet: get_all_events
-  getAllGeItemsGeGet: get_all_ge_items
-  getGeItemGeCodeGet: get_ge_item
+#   general
   createAccountAccountsCreatePost: create_account
+  changePasswordMyChangePasswordPost: change_password
   generateTokenTokenPost: generate_token
   getStatusGet: get_status
+  getLeaderboardLeaderboardGet: get_leaderboards

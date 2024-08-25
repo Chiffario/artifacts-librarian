@@ -7,9 +7,9 @@ use crate::{apis::ResponseContent, models};
 use reqwest::StatusCode;
 use serde::{Deserialize, Serialize};
 
-/// struct for passing parameters to the method [`get_leaderboard_leaderboard_get`]
+/// struct for passing parameters to the method [`get_leaderboards`]
 #[derive(Clone, Debug)]
-pub struct GetLeaderboardLeaderboardGetParams {
+pub struct GetLeaderboardsParams {
     /// Default sort by combat total XP.
     pub sort: Option<String>,
     /// Page number
@@ -18,12 +18,12 @@ pub struct GetLeaderboardLeaderboardGetParams {
     pub size: Option<u32>,
 }
 
-/// struct for typed errors of method [`get_leaderboard_leaderboard_get`]
+/// struct for typed errors of method [`get_leaderboards`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetLeaderboardLeaderboardGetError {}
+pub enum GetLeaderboardsError {}
 
-impl TryFrom<StatusCode> for GetLeaderboardLeaderboardGetError {
+impl TryFrom<StatusCode> for GetLeaderboardsError {
     type Error = &'static str;
     #[allow(clippy::match_single_binding)]
     fn try_from(status: StatusCode) -> Result<Self, Self::Error> {
@@ -34,10 +34,10 @@ impl TryFrom<StatusCode> for GetLeaderboardLeaderboardGetError {
 }
 
 /// Fetch leaderboard details.
-pub async fn get_leaderboard_leaderboard_get(
+pub async fn get_leaderboards(
     configuration: &configuration::Configuration,
-    params: GetLeaderboardLeaderboardGetParams,
-) -> Result<models::DataPageCharacterLeaderboardSchema, Error<GetLeaderboardLeaderboardGetError>> {
+    params: GetLeaderboardsParams,
+) -> Result<models::DataPageCharacterLeaderboardSchema, Error<GetLeaderboardsError>> {
     let local_var_configuration = configuration;
 
     // unbox the parameters
@@ -79,8 +79,7 @@ pub async fn get_leaderboard_leaderboard_get(
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetLeaderboardLeaderboardGetError> =
-            local_var_status.try_into().ok();
+        let local_var_entity: Option<GetLeaderboardsError> = local_var_status.try_into().ok();
         let local_var_error = ResponseContent {
             status: local_var_status,
             content: local_var_content,

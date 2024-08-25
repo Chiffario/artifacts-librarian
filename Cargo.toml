@@ -1,7 +1,7 @@
 [package]
 name = "artifacts-librarian"
 description = "Rust client for Artifacts"
-version = "1.0.2"
+version = "1.0.3"
 authors = ["Chiffa"]
 license = "MIT"
 edition = "2021"
